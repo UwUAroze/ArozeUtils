@@ -1,4 +1,4 @@
-package minecraft
+package minecraft.generic
 
 import org.bukkit.potion.PotionEffect
 

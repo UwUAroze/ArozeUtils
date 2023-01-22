@@ -1,4 +1,4 @@
-package minecraft
+package minecraft.generic
 
 import org.bukkit.Material
 import org.bukkit.entity.Player

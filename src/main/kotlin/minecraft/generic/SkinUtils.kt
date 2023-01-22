@@ -1,4 +1,4 @@
-package minecraft
+package minecraft.generic
 
 import com.mojang.authlib.GameProfile
 import com.mojang.authlib.properties.Property

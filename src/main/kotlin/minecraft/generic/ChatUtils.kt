@@ -1,4 +1,4 @@
-package minecraft
+package minecraft.generic
 
 import net.md_5.bungee.api.ChatColor
 import java.util.regex.Matcher
