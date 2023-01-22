@@ -1,7 +1,9 @@
+// TODO: Remake/fix most of this stuff
+
 package me.aroze.arozeutils.minecraft.generic
 
-import com.mojang.authlib.GameProfile
-import com.mojang.authlib.properties.Property
+//import com.mojang.authlib.GameProfile
+//import com.mojang.authlib.properties.Property
 import kong.unirest.Unirest
 import org.bukkit.Material
 import org.bukkit.OfflinePlayer
@@ -18,34 +20,34 @@ fun fetchSkull(offlinePlayer: OfflinePlayer, getSkull: (ItemStack) -> Unit) {
     getSkull.invoke(skull)
 }
 
-fun getSkullFromBsae64(base64: String): ItemStack {
+//fun getSkullFromBsae64(base64: String): ItemStack {
+//
+//    val skull = ItemStack(Material.PLAYER_HEAD)
+//    val meta = skull.itemMeta as SkullMeta
+//
+//    val profile = GameProfile(UUID.randomUUID(), null);
+//    profile.properties.put("textures", Property("textures", base64));
+//
+//    val field: Field = meta.javaClass.getDeclaredField("profile")
+//    field.isAccessible = true
+//    field.set(meta, profile)
+//
+//    skull.itemMeta = meta
+//
+//    return skull
+//
+//}
 
-    val skull = ItemStack(Material.PLAYER_HEAD)
-    val meta = skull.itemMeta as SkullMeta
-
-    val profile = GameProfile(UUID.randomUUID(), null);
-    profile.properties.put("textures", Property("textures", base64));
-
-    val field: Field = meta.javaClass.getDeclaredField("profile")
-    field.isAccessible = true
-    field.set(meta, profile)
-
-    skull.itemMeta = meta
-
-    return skull
-
-}
-
-fun getSkullFromURL(url: String): ItemStack {
-
-    val b64 = Base64.getEncoder().encodeToString(
-        "{\"textures\":{\"SKIN\":{\"url\":\"http://textures.minecraft.net/texture/${
-            stripTextureForApi(url)
-        }\"}}}".toByteArray()
-    )
-    return getSkullFromBsae64(b64)
-
-}
+//fun getSkullFromURL(url: String): ItemStack {
+//
+//    val b64 = Base64.getEncoder().encodeToString(
+//        "{\"textures\":{\"SKIN\":{\"url\":\"http://textures.minecraft.net/texture/${
+//            stripTextureForApi(url)
+//        }\"}}}".toByteArray()
+//    )
+//    return getSkullFromBsae64(b64)
+//
+//}
 
 fun validateTextureURL(url: String): Boolean {
 
