@@ -1,5 +1,6 @@
-package minecraft.generic
+package me.aroze.arozeutils.minecraft.generic
 
+import me.aroze.arozeutils.kotlin.replaceCaseInsensitive
 import kotlin.math.ceil
 
 fun uwuify(text: String) : String {

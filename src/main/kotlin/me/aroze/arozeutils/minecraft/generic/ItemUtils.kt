@@ -1,4 +1,4 @@
-package minecraft.generic
+package me.aroze.arozeutils.minecraft.generic
 
 import org.bukkit.Material
 import org.bukkit.entity.Player

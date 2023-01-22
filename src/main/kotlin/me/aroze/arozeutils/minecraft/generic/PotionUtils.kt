@@ -1,4 +1,4 @@
-package minecraft.generic
+package me.aroze.arozeutils.minecraft.generic
 
 import org.bukkit.potion.PotionEffect
 

@@ -1,4 +1,4 @@
-package minecraft.command
+package me.aroze.arozeutils.minecraft.command
 
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
