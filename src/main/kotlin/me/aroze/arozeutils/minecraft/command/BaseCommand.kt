@@ -37,8 +37,6 @@ abstract class BaseCommand(val command: String) : Command(command) {
 
     override fun execute(sender: CommandSender, commandLabel: String, args: Array<out String>): Boolean {
 
-        Bukkit.broadcastMessage("a")
-
         if (commandInfo.permission.isNotEmpty() && !sender.hasPermission(commandInfo.permission)) {
             sender.send("&#ff6e6e⚠ &#ff7f6e${commandInfo.permissionMessage}")
             return true
