@@ -21,7 +21,7 @@ abstract class BaseCommand(val command: String) : BukkitCommand(command) {
             val mapField = Bukkit.getServer().javaClass.getDeclaredField("commandMap")
             mapField.isAccessible = true
             val map = mapField.get(Bukkit.getServer()) as CommandMap
-            val prefix = commandInfo.prefix.ifEmpty { plugin.name }
+            val prefix = "a" //commandInfo.prefix.ifEmpty { plugin.name }
             map.register(prefix, this)
         }
 
