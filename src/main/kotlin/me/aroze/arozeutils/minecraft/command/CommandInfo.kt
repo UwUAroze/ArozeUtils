@@ -6,7 +6,7 @@ import org.bukkit.entity.Player
 
 annotation class CommandInfo(
 
-    val prefix: String,
+    val prefix: String = "",
 
     val description: String = "",
     val aliases: Array<String> = [],
