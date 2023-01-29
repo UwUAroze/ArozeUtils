@@ -13,7 +13,11 @@ abstract class BaseCommand(val command: String) : BukkitCommand(command) {
 
     val commandInfo: CommandInfo = this::class.java.getAnnotation(CommandInfo::class.java)
 
-    fun registerCommand() {
+    init {
+        registerCommand()
+    }
+
+    private fun registerCommand() {
         this.aliases = commandInfo.aliases.toList()
         this.description = commandInfo.description
 
