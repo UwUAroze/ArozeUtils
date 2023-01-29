@@ -7,7 +7,6 @@ import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandMap
 import org.bukkit.command.CommandSender
-import org.bukkit.command.defaults.BukkitCommand
 
 abstract class BaseCommand(val command: String) : Command(command) {
 
@@ -38,12 +37,12 @@ abstract class BaseCommand(val command: String) : Command(command) {
     override fun execute(sender: CommandSender, commandLabel: String, args: Array<out String>): Boolean {
 
         if (commandInfo.permission.isNotEmpty() && !sender.hasPermission(commandInfo.permission)) {
-            sender.send("&#ff6e6e⚠ &#ff7f6e${commandInfo.permissionMessage}")
+            sender.sendError(commandInfo.permissionMessage)
             return true
         }
 
         if (!commandInfo.allowedSenders.isAcceptable(sender)) {
-            sender.send("&#ff6e6e⚠ &#ff7f6e${commandInfo.disallowedSenderMessage}")
+            sender.sendError(commandInfo.disallowedSenderMessage)
             return true
         }
 
