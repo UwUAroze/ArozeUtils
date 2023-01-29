@@ -9,7 +9,7 @@ import org.bukkit.command.CommandMap
 import org.bukkit.command.CommandSender
 import org.bukkit.command.defaults.BukkitCommand
 
-abstract class BaseCommand(val command: String) : BukkitCommand(command) {
+abstract class BaseCommand(val command: String) : Command(command) {
 
     val commandInfo: CommandInfo = this::class.java.getAnnotation(CommandInfo::class.java)
 
