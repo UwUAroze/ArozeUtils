@@ -1,17 +1,15 @@
 package me.aroze.arozeutils.minecraft.command
 
 import org.bukkit.command.CommandSender
-import org.bukkit.command.ConsoleCommandSender
 import org.bukkit.entity.Player
 
 annotation class CommandInfo(
 
-    val name: String,
     val description: String = "",
     val aliases: Array<String> = [],
 
-    val initialPermission: String = "",
-    val initialPermissionMessage: String = "",
+    val permission: String = "",
+    val permissionMessage: String = "",
 
     val allowedSenders: CommandSenders = CommandSenders.ALL,
     val disallowedSenderMessage: String = ""

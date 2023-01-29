@@ -20,8 +20,8 @@ abstract class BaseCommand(val command: String) : Command(command) {
             map.register(command, this)
         }
 
-        catch(_: NoSuchFieldException) { }
-        catch(_: IllegalAccessException) { }
+        catch(_: NoSuchFieldException) { /* woah */ }
+        catch(_: IllegalAccessException) { /* omg */ }
 
     }
 
