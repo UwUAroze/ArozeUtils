@@ -7,8 +7,9 @@ import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandMap
 import org.bukkit.command.CommandSender
+import org.bukkit.command.defaults.BukkitCommand
 
-abstract class BaseCommand(val command: String) : Command(command) {
+abstract class BaseCommand(val command: String) : BukkitCommand(command) {
 
     val commandInfo: CommandInfo = this::class.java.getAnnotation(CommandInfo::class.java)
 
@@ -20,7 +21,7 @@ abstract class BaseCommand(val command: String) : Command(command) {
             val mapField = Bukkit.getServer().javaClass.getDeclaredField("commandMap")
             mapField.isAccessible = true
             val map = mapField.get(Bukkit.getServer()) as CommandMap
-            val prefix = if (commandInfo.prefix.isNotEmpty()) "${commandInfo.prefix} " else plugin.name
+            val prefix = commandInfo.prefix.ifEmpty { plugin.name }
             map.register(prefix, this)
         }
 
