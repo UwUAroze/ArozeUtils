@@ -28,8 +28,8 @@ abstract class BaseCommand(val command: String) : Command(command) {
             map.register(prefix, this)
         }
 
-        catch(_: NoSuchFieldException) { /* woah */ }
-        catch(_: IllegalAccessException) { /* omg */ }
+        catch(e: NoSuchFieldException) { e.printStackTrace() }
+        catch(e: IllegalAccessException) { e.printStackTrace() }
     }
 
     abstract fun onCommand(sender: CommandSender, label: String, args: Array<out String>)
