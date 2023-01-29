@@ -12,11 +12,7 @@ abstract class BaseCommand(val command: String) : Command(command) {
 
     val commandInfo: CommandInfo = this::class.java.getAnnotation(CommandInfo::class.java)
 
-    init {
-        registerCommand()
-    }
-
-    private fun registerCommand() {
+    fun registerCommand() {
         this.aliases = commandInfo.aliases.toList()
         this.description = commandInfo.description
 
