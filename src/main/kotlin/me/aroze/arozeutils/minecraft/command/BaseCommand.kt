@@ -36,7 +36,7 @@ abstract class BaseCommand(val command: String) : Command(command) {
 
     override fun execute(sender: CommandSender, commandLabel: String, args: Array<out String>): Boolean {
 
-        if (commandInfo.permission.isNotEmpty() && !sender.hasPermission(commandInfo.permission)) {
+        if (commandInfo.permission.isNotEmpty() && !sender.hasPermission("${plugin.name}.${commandInfo.permission}")) {
             sender.sendError(commandInfo.permissionMessage)
             return true
         }
