@@ -54,9 +54,12 @@ abstract class BaseCommand(val command: String) : Command(command) {
 
     fun CommandSender.send(message: String) = this.sendMessage(message.coloured())
     fun CommandSender.sendRaw(message: String) = this.sendMessage(message)
-
     fun CommandSender.sendPrimary(message: String) = send("&p$message")
     fun CommandSender.sendError(message: String) = send("&#ff6e6e⚠ &#ff7f6e$message")
+    fun Player.send(message: String) = this.sendMessage(message.coloured())
+    fun Player.sendRaw(message: String) = this.sendMessage(message)
+    fun Player.sendPrimary(message: String) = send("&p$message")
+    fun Player.sendError(message: String) = send("&#ff6e6e⚠ &#ff7f6e$message")
 
     /* Commonly found target logic for basic commands:
      - If no args are specified, target is sender. Else target is first arg
