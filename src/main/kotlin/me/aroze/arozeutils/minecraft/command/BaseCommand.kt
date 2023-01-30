@@ -7,6 +7,7 @@ import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandMap
 import org.bukkit.command.CommandSender
+import org.bukkit.entity.Player
 
 abstract class BaseCommand(val command: String) : Command(command) {
 
@@ -57,6 +58,18 @@ abstract class BaseCommand(val command: String) : Command(command) {
     fun CommandSender.sendPrimary(message: String) = send("&p$message")
     fun CommandSender.sendError(message: String) = send("&#ff6e6e⚠ &#ff7f6e$message")
 
+    /* Commonly found target logic for basic commands:
+     - If no args are specified, target is sender. Else target is first arg
+     - Sender can't be console with no args
+     - Target must be online */
+    fun handleTarget(sender: CommandSender, args: Array<out String>, offlinePlayerError: String = "That player doesn't exist, dummy") : Player? {
+        if (args.isEmpty()) {
+            if (sender is Player) return sender as Player
+            sender.sendError("You aren't a player! So specify one, silly"); return null
+        }
 
+        if (Bukkit.getPlayer(args[0]) == null) sender.sendError(offlinePlayerError)
+        return Bukkit.getPlayer(args[0])
+    }
 
 }
