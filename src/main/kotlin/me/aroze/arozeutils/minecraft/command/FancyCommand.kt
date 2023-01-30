@@ -1,6 +1,5 @@
 package me.aroze.arozeutils.minecraft.command
 
-import me.aroze.arozeutils.minecraft.FancyPlugin
 import me.aroze.arozeutils.minecraft.generic.coloured
 import me.aroze.arozeutils.minecraft.plugin
 import org.bukkit.Bukkit
@@ -9,7 +8,7 @@ import org.bukkit.command.CommandMap
 import org.bukkit.command.CommandSender
 import org.bukkit.entity.Player
 
-abstract class BaseCommand(val command: String) : Command(command) {
+abstract class FancyCommand(val command: String) : Command(command) {
 
     val commandInfo: CommandInfo = this::class.java.getAnnotation(CommandInfo::class.java)
 
