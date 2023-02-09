@@ -32,7 +32,7 @@ abstract class FancyCommand(val command: String) : Command(command) {
         catch(e: IllegalAccessException) { e.printStackTrace() }
     }
 
-    abstract fun onCommand(sender: CommandSender, label: String, args: Array<out String>)
+    abstract fun onCommand(sender: CommandSender, label: String, args: Array<out String>): Any
 
     override fun execute(sender: CommandSender, commandLabel: String, args: Array<out String>): Boolean {
 
@@ -72,6 +72,18 @@ abstract class FancyCommand(val command: String) : Command(command) {
 
         if (Bukkit.getPlayer(args[0]) == null) sender.sendError(offlinePlayerError)
         return Bukkit.getPlayer(args[0])
+    }
+
+    /*
+     * Permission check with message handling
+     * @param permission The permission to check for
+     * @param message Error message to send if rightless
+     * @return True if the permission is not present, false otherwise
+     */
+    fun CommandSender.isRightless(permission: String, message: String = "lol u wish") : Boolean {
+        if (this.hasPermission("uwucore.$permission")) return false
+        this.sendError(message)
+        return true
     }
 
 }
