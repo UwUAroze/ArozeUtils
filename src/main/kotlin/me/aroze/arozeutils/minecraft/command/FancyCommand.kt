@@ -32,7 +32,7 @@ abstract class FancyCommand(val command: String) : Command(command) {
         catch(e: IllegalAccessException) { e.printStackTrace() }
     }
 
-    abstract fun onCommand(sender: CommandSender, label: String, args: Array<out String>): Any
+    abstract fun onCommand(sender: CommandSender, label: String, args: Array<out String>)
 
     override fun execute(sender: CommandSender, commandLabel: String, args: Array<out String>): Boolean {
 
