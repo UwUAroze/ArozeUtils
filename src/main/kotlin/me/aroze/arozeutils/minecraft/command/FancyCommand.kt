@@ -26,6 +26,25 @@ abstract class FancyCommand(val command: String) : Command(command) {
             val map = mapField.get(Bukkit.getServer()) as CommandMap
             val prefix = commandInfo.prefix.ifEmpty { plugin.name }
             map.register(prefix, this)
+
+            StoredCommands.storeCommand(this)
+        }
+
+        catch(e: NoSuchFieldException) { e.printStackTrace() }
+        catch(e: IllegalAccessException) { e.printStackTrace() }
+    }
+
+    fun unregisterCommand() {
+        try {
+            val mapField = Bukkit.getServer().javaClass.getDeclaredField("commandMap")
+            mapField.isAccessible = true
+            val map = mapField.get(Bukkit.getServer()) as CommandMap
+            val knownCommandField = map.javaClass.getDeclaredField("knownCommands")
+            knownCommandField.isAccessible = true
+            val knownCommands = knownCommandField.get(map) as MutableMap<String, Command>
+            knownCommands.remove(command)
+            this.unregister(map)
+            StoredCommands.unstoreCommand(this)
         }
 
         catch(e: NoSuchFieldException) { e.printStackTrace() }

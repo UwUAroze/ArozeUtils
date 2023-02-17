@@ -1,6 +1,7 @@
 package me.aroze.arozeutils.minecraft.generic
 
 import net.md_5.bungee.api.ChatColor
+import org.bukkit.map.MinecraftFont
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
@@ -27,6 +28,11 @@ fun String.coloured(): String {
 
 fun String.undress(): String {
     return ChatColor.stripColor(this)
+}
+
+fun centerTextToChat(text: String): String {
+    val spaces = (MinecraftFont.Font.getWidth(text) / 2) - 1
+    return " ".repeat(spaces) + text
 }
 
 // TODO: Gradient method
