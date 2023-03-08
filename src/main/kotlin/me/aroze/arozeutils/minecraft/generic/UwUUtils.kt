@@ -13,7 +13,7 @@ fun uwuify(text: String) : String {
     toReturn = toReturn.replaceCaseInsensitive("\\? ", "~ ");
     toReturn = toReturn.replaceCaseInsensitive("hurt", "hUWUrt");
     toReturn = toReturn.replaceCaseInsensitive("kill", "hwuwrt");
-    toReturn = toReturn.replaceCaseInsensitive("you", "you<3");
+    toReturn = toReturn.replaceCaseInsensitive("\\byou\\b", "you<3");
     toReturn = toReturn.replaceCaseInsensitive("r", "w");
     toReturn = toReturn.replaceCaseInsensitive("l", "w");
     toReturn = toReturn.replaceCaseInsensitive("uwu", "UWU");
