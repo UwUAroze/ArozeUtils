@@ -11,3 +11,7 @@ fun String.prettify(): String {
         .split(" ")
         .joinToString(" ") { ((it.getOrNull(0) ?: "").toString()).uppercase() + it.substring(it.length.coerceAtMost(1)).lowercase() }
 }
+
+fun String.cutOff(length: Int): String {
+    return if (this.length > length) this.substring(0, length) + "..." else this
+}
