@@ -9,7 +9,10 @@ fun String.replaceCaseInsensitive(text: String, replacement: String): String {
 fun String.prettify(): String {
     return this.replace(Regex("[-_]"), " ")
         .split(" ")
-        .joinToString(" ") { ((it.getOrNull(0) ?: "").toString()).uppercase() + it.substring(it.length.coerceAtMost(1)).lowercase() }
+        .joinToString(" ") {
+            ((it.getOrNull(0) ?: "").toString()).uppercase() +
+                it.substring(it.length.coerceAtMost(1)).lowercase()
+        }
 }
 
 fun String.cutOff(length: Int): String {
