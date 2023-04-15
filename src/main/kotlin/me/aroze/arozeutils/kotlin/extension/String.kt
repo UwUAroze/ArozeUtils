@@ -18,3 +18,11 @@ fun String.prettify(): String {
 fun String.cutOff(length: Int): String {
     return if (this.length > length) this.substring(0, length) + "..." else this
 }
+
+fun String.replacePlaceholders(map: HashMap<String, String>, characters: String = "{}") : String {
+    var placeholded = this
+    for (value in map) {
+        placeholded = placeholded.replace("${characters[0]}${value.key}${characters[1]}", value.value)
+    }
+    return placeholded
+}
