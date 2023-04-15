@@ -9,3 +9,10 @@ private fun Double.roundTo(places: Int): String {
     if (rounded % 10 == 0.0) return rounded.toInt().toString()
     return rounded.toString()
 }
+
+fun Long.makeTimestamp(): String {
+    val minutes = (this / 1000 / 60).toInt()
+    val seconds = (this / 1000.0 % 60).roundTo(2)
+    return if (minutes > 0) "$minutes minutes and $seconds seconds"
+    else "$seconds seconds"
+}
