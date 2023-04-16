@@ -23,3 +23,17 @@ fun factorPairsBetween(min: Int = 1, max: Int): List<Pair<Int, Int>> {
     for (i in min..sqrt(max.toDouble()).toInt()) if (max % i == 0) factors.add(Pair(i, max / i))
     return factors
 }
+
+fun divisiblePairsBetween(min: Int, max: Int, allowSameValuesInPairs: Boolean): List<Pair<Int, Int>> {
+    val pairs = mutableListOf<Pair<Int, Int>>()
+    for (i in min..max) {
+        val sqrt = kotlin.math.sqrt(i.toDouble()).toInt()
+        for (j in min..sqrt) {
+            if (i % j == 0) {
+                if (allowSameValuesInPairs || i != j) pairs.add(Pair(i, j))
+                if (j != i / j && (allowSameValuesInPairs || i != i / j)) pairs.add(Pair(i, i / j))
+            }
+        }
+    }
+    return pairs
+}
