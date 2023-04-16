@@ -18,14 +18,8 @@ fun Long.makeTimestamp(): String {
     else "$seconds seconds"
 }
 
-fun factorPairs(num1: Int, num2: Int): List<Pair<Int, Int>> {
+fun factorPairsBetween(min: Int = 1, max: Int): List<Pair<Int, Int>> {
     val factors = mutableListOf<Pair<Int, Int>>()
-    val minNum = minOf(num1, num2)
-    for (i in 1..sqrt(minNum.toDouble()).toInt()) {
-        if (num1 % i == 0 && num2 % i == 0) {
-            factors.add(Pair(i, num1 / i))
-            factors.add(Pair(i, num2 / i))
-        }
-    }
-    return factors.distinct()
+    for (i in min..sqrt(max.toDouble()).toInt()) if (max % i == 0) factors.add(Pair(i, max / i))
+    return factors
 }
