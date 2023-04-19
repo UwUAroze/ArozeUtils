@@ -8,17 +8,15 @@ package me.aroze.arozeutils.kotlin.type
  * @return The instance of this randomiser
  * @sample randomTasties
  */
-class Randomiser(
-    private val list: List<*>,
-) {
+class Randomiser<T: Any>(private val list: List<T>) {
 
     var shuffledList = list.shuffled()
     var curretIndex = 0
 
-    fun next(): Any {
+    fun next(): T {
         curretIndex++
         if (curretIndex >= shuffledList.size) reset()
-        return shuffledList[curretIndex]!!
+        return shuffledList[curretIndex]
     }
 
     private fun reset() {
