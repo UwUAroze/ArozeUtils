@@ -1,4 +1,4 @@
-package me.aroze.arozeutils.minecraft.generic
+package me.aroze.arozeutils.minecraft.generic.text
 
 import me.aroze.arozeutils.kotlin.extension.replaceCaseInsensitive
 import kotlin.math.ceil

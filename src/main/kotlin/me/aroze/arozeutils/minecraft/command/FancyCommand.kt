@@ -1,6 +1,6 @@
 package me.aroze.arozeutils.minecraft.command
 
-import me.aroze.arozeutils.minecraft.generic.coloured
+import me.aroze.arozeutils.minecraft.generic.text.coloured
 import me.aroze.arozeutils.minecraft.plugin
 import org.bukkit.Bukkit
 import org.bukkit.command.Command

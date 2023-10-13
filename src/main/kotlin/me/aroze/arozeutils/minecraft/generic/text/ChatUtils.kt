@@ -1,4 +1,4 @@
-package me.aroze.arozeutils.minecraft.generic
+package me.aroze.arozeutils.minecraft.generic.text
 
 import net.md_5.bungee.api.ChatColor
 import org.bukkit.map.MinecraftFont
