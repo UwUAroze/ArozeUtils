@@ -1,6 +1,7 @@
 plugins {
     `java-library`
     `maven-publish`
+    `java`
     kotlin("jvm") version "1.9.20-RC"
 }
 
