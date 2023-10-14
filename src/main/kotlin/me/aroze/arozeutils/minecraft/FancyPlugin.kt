@@ -2,10 +2,13 @@ package me.aroze.arozeutils.minecraft
 
 import me.aroze.arozeutils.minecraft.command.FancyCommand
 import me.aroze.arozeutils.minecraft.command.StoredCommands
+import net.kyori.adventure.text.minimessage.MiniMessage
 import org.bukkit.plugin.java.JavaPlugin
 
-val plugin: JavaPlugin
+val instance: JavaPlugin
     get() = pluginInstance
+
+val mm = MiniMessage.miniMessage()
 
 private lateinit var pluginInstance: FancyPlugin
 

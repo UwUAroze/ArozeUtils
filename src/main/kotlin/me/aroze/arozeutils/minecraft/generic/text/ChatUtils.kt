@@ -1,5 +1,7 @@
 package me.aroze.arozeutils.minecraft.generic.text
 
+import me.aroze.arozeutils.minecraft.mm
+import net.kyori.adventure.text.Component
 import net.md_5.bungee.api.ChatColor
 import org.bukkit.map.MinecraftFont
 import java.util.regex.Matcher
@@ -12,6 +14,7 @@ enum class ChatColors(val hex: String) {
     SECONDARY("&#ffb5cf"),
 }
 
+@Deprecated("Use translate()")
 fun String.coloured(): String {
     var coloured = this
         .replace("&p", ChatColors.PRIMARY.hex)
@@ -26,14 +29,12 @@ fun String.coloured(): String {
     return ChatColor.translateAlternateColorCodes('&', coloured)
 }
 
+@Deprecated("Minimessage better")
 fun String.undress(): String {
     return ChatColor.stripColor(this)
 }
 
-fun centerTextToChat(text: String): String {
-    val spaces = (MinecraftFont.Font.getWidth(text) / 2) - 1
-    return " ".repeat(spaces) + text
-}
+fun translate(input: String) = mm.deserialize(input)
 
 // TODO: Gradient method
 // TODO: Text centering method
