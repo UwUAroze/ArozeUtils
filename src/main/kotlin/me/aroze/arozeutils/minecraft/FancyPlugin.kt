@@ -39,7 +39,7 @@ abstract class FancyPlugin: JavaPlugin() {
         onPluginDisable()
     }
 
-    private fun registerListenersPackage(pkg: String) {
+    fun registerListenersPackage(pkg: String) {
         for (listener in getClassesInPackage(pkg) { Listener::class.java in it.interfaces })
             Bukkit.getPluginManager().registerEvents(listener.getField("INSTANCE")[null] as Listener, this)
     }
