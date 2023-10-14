@@ -9,14 +9,18 @@ version = "1.0"
 repositories {
     mavenCentral()
     maven {
+        name = "papermc-repo"
+        url = uri("https://repo.papermc.io/repository/maven-public/")
+    }
+    maven {
         name = "sonatype"
         url = uri("https://oss.sonatype.org/content/groups/public/")
     }
     maven("https://jitpack.io")
-    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
 }
+
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.19.2-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.20.1-R0.1-SNAPSHOT")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     api("com.konghq:unirest-java:3.13.13")
