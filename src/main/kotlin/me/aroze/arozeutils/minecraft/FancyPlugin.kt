@@ -1,6 +1,5 @@
 package me.aroze.arozeutils.minecraft
 
-import me.aroze.arozeutils.kotlin.reflection.getClassesInPackage
 import me.aroze.arozeutils.minecraft.command.FancyCommand
 import me.aroze.arozeutils.minecraft.command.StoredCommands
 import net.kyori.adventure.text.minimessage.MiniMessage
@@ -39,9 +38,4 @@ abstract class FancyPlugin: JavaPlugin() {
         onPluginDisable()
     }
 
-}
-
-fun registerListenersPackage(pkg: String) {
-    for (listener in getClassesInPackage(pkg) { Listener::class.java in it.interfaces })
-        Bukkit.getPluginManager().registerEvents(listener.getField("INSTANCE")[null] as Listener, instance)
 }

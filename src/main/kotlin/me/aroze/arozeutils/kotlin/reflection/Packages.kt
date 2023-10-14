@@ -1,6 +1,8 @@
 package me.aroze.arozeutils.kotlin.reflection
 
 import me.aroze.arozeutils.minecraft.instance
+import org.bukkit.Bukkit
+import org.bukkit.event.Listener
 import java.io.File
 import java.util.jar.JarInputStream
 
@@ -30,4 +32,9 @@ fun getClassesInPackage(pkg: String, predicate: (Class<*>) -> Boolean = { true }
     }
 
     return classes
+}
+
+fun registerListenersPackage(pkg: String) {
+    for (listener in getClassesInPackage(pkg) { Listener::class.java in it.interfaces })
+        Bukkit.getPluginManager().registerEvents(listener.getField("INSTANCE")[null] as Listener, instance)
 }
