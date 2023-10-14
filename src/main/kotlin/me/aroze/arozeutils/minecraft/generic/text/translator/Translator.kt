@@ -1,4 +1,4 @@
-package com.github.clorie.translator
+package me.aroze.arozeutils.minecraft.generic.text.translator
 
 import me.aroze.arozeutils.minecraft.mm
 import net.kyori.adventure.text.Component

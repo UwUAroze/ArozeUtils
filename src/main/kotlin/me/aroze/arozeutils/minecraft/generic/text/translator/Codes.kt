@@ -1,4 +1,4 @@
-package com.github.clorie.translator
+package me.aroze.arozeutils.minecraft.generic.text.translator
 
 internal val miniMessageReplacements = mutableMapOf<String, Pair<String, String>>(
     "p" to ("<color:#ffd4e3>" to "</color>"),
