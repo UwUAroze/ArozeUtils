@@ -34,7 +34,5 @@ fun String.undress(): String {
     return ChatColor.stripColor(this)
 }
 
-fun translate(input: String) = mm.deserialize(input)
-
 // TODO: Gradient method
 // TODO: Text centering method
