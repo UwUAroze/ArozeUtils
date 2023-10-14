@@ -1,9 +1,10 @@
 package me.aroze.arozeutils.kotlin.reflection
 
+import me.aroze.arozeutils.minecraft.instance
 import java.io.File
 import java.util.jar.JarInputStream
 
-fun getClassesInPackage(instance: Class<*>, pkg: String, predicate: (Class<*>) -> Boolean = { true }): List<Class<*>> {
+fun getClassesInPackage(pkg: String, predicate: (Class<*>) -> Boolean = { true }): List<Class<*>> {
     val classes = mutableListOf<Class<*>>()
     val instanceClass = instance::class.java
     val path = instanceClass.protectionDomain.codeSource.location.toURI()
