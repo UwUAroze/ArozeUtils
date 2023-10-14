@@ -49,6 +49,17 @@ tasks.named<ProcessResources>("processResources") {
     }
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            groupId = "me.aroze"
+            artifactId = "ArozeUtils"
+            version = "1.0"
+            from(components["java"])
+        }
+    }
+}
+
 kotlin {
     jvmToolchain(17)
 }
