@@ -1,5 +1,7 @@
 package me.aroze.arozeutils.minecraft.generic.text.translator
 
+import me.aroze.arozeutils.minecraft.FancyPlugin
+
 internal val miniMessageReplacements = mutableMapOf<String, Pair<String, String>>(
     "p" to ("<color:#ffd4e3>" to "</color>"),
     "s" to ("<color:#ffb5cf>" to "</color>"),
