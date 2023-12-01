@@ -19,10 +19,16 @@ fun String.cutOff(length: Int): String {
     return if (this.length > length) this.substring(0, length) + "..." else this
 }
 
-fun String.replacePlaceholders(map: HashMap<String, String>, characters: String = "{}") : String {
+fun String.replacePlaceholders(map: Map<String, String>, parenthesis: String = "{}", ignoreCase: Boolean = false) : String {
     var placeholded = this
     for (value in map) {
-        placeholded = placeholded.replace("${characters[0]}${value.key}${characters[1]}", value.value)
+        placeholded = placeholded.replace("${parenthesis[0]}${value.key}${parenthesis[1]}", value.value, ignoreCase)
     }
+    return placeholded
+}
+
+fun String.replacePlaceholders(map: Map<String, String>, ignoreCase: Boolean = false) : String {
+    var placeholded = this
+    for (value in map) placeholded = placeholded.replace(value.key, value.value, ignoreCase)
     return placeholded
 }
