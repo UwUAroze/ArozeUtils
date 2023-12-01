@@ -3,16 +3,14 @@ package me.aroze.arozeutils.minecraft
 import me.aroze.arozeutils.minecraft.command.FancyCommand
 import me.aroze.arozeutils.minecraft.command.StoredCommands
 import net.kyori.adventure.text.minimessage.MiniMessage
-import org.bukkit.Bukkit
-import org.bukkit.event.Listener
 import org.bukkit.plugin.java.JavaPlugin
 
 val instance: JavaPlugin
-    get() = pluginInstance
+    get() = plugin
 
 val mm = MiniMessage.miniMessage()
 
-private lateinit var pluginInstance: FancyPlugin
+lateinit var plugin: FancyPlugin
 
 abstract class FancyPlugin: JavaPlugin() {
 
@@ -29,7 +27,7 @@ abstract class FancyPlugin: JavaPlugin() {
     */ }
 
     final override fun onLoad() {
-        pluginInstance = this
+        plugin = this
         onPluginLoad()
     }
 
