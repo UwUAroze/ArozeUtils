@@ -3,6 +3,7 @@ package me.aroze.arozeutils.kotlin
 import kotlin.math.pow
 import kotlin.math.round
 import kotlin.math.sqrt
+import kotlin.random.Random
 
 private fun Double.roundTo(places: Int): String {
     val factor = 10.0.pow(places)
@@ -37,3 +38,5 @@ fun divisiblePairsBetween(min: Int, max: Int, allowSameValuesInPairs: Boolean = 
     }
     return pairs
 }
+
+fun chanceOf(chance: Number, outOf: Number = 100) = Random.nextDouble(outOf.toDouble()) < chance.toDouble()
