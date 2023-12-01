@@ -46,14 +46,6 @@ private val replacements = mapOf(
 
 private val randomEnding = Randomiser(endings)
 
-fun main() {
-    uwuify("this is an example message")
-    uwuify("omg woahh")
-    uwuify("hii")
-    uwuify("Lorem ipsum dolor sit amet, consectetur adipiscing elit")
-    uwuify("once upon a time um")
-}
-
 fun uwuify(text: String) : String {
 
     var uwuified = text
