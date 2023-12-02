@@ -52,7 +52,7 @@ fun uwuify(text: String) : String {
 
     if (chanceOf(50)) uwuified += "~"
     uwuified += " ${randomEnding.next()}"
-    uwuified.replacePlaceholders(replacements, true)
+    uwuified = uwuified.replacePlaceholders(replacements, true)
     uwuified = addStutters(uwuified)
 
     return uwuified
