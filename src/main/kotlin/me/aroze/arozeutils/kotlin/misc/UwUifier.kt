@@ -50,7 +50,7 @@ fun uwuify(text: String) : String {
 
     var uwuified = text
 
-    if (chanceOf(50)) uwuified += "~"
+    if (chanceOf(65)) uwuified += "~"
     uwuified += " ${randomEnding.next()}"
     uwuified = uwuified.replacePlaceholders(replacements, true)
     uwuified = addStutters(uwuified)
@@ -60,7 +60,7 @@ fun uwuify(text: String) : String {
 
 private fun addStutters(text: String): String {
     return text.replace(Regex("\\b([a-zA-Z]+)\\b")) {
-        if (chanceOf(50)) "${it.groupValues[1][0]}-${it.groupValues[1]}"
+        if (chanceOf(35)) "${it.groupValues[1][0]}-${it.groupValues[1]}"
         else it.value
     }
 }
