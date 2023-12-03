@@ -59,8 +59,11 @@ fun uwuify(text: String) : String {
 }
 
 private fun addStutters(text: String): String {
+    if(!chanceOf(35)) {
+        return text
+    }
+    
     return text.replace(Regex("\\b([a-zA-Z]+)\\b")) {
-        if (chanceOf(35)) "${it.groupValues[1][0]}-${it.groupValues[1]}"
-        else it.value
+        "${it.groupValues[1][0]}-${it.groupValues[1]}"
     }
 }
